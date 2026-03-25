@@ -9,7 +9,7 @@ export class PagamentoService {
   private readonly baseUrl = 'https://pagamentosestudos-bkfmcycmhresd0a2.brazilsouth-01.azurewebsites.net';
   private readonly http = inject(HttpClient);
 
-  getLista(): Observable<any[]> {
-    return this.http.get<any[]>(`${this.baseUrl}/v1/payments`);
+  getLista(): Observable<{ data: { pagamentos: any[] } }> {
+    return this.http.get<{ data: { pagamentos: any[] } }>(`${this.baseUrl}/v1/payments`);
   }
 }

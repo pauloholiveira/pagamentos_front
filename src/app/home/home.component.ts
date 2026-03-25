@@ -19,7 +19,7 @@ export class HomeComponent implements OnInit {
   ngOnInit(): void {
     this.pagamentoService.getLista().subscribe({
       next: (dados) => {
-        this.lista = dados;
+        this.lista = dados.data?.pagamentos ?? [];
         this.carregando = false;
       },
       error: (err) => {
