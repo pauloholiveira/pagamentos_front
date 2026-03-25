@@ -1,0 +1,35 @@
+.container {
+  max-width: 800px;
+  margin: 2rem auto;
+  padding: 0 1rem;
+  font-family: Arial, sans-serif;
+
+  h1 {
+    font-size: 2rem;
+    margin-bottom: 1.5rem;
+  }
+}
+
+.lista-section {
+  ul {
+    list-style: none;
+    padding: 0;
+
+    li {
+      padding: 0.75rem 1rem;
+      margin-bottom: 0.5rem;
+      background: #f5f5f5;
+      border-radius: 4px;
+      border-left: 4px solid #1976d2;
+    }
+  }
+}
+
+.estado {
+  padding: 1rem;
+  color: #555;
+
+  &.erro {
+    color: #c62828;
+  }
+}

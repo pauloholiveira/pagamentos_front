@@ -1,0 +1,9 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(npx @angular/cli@latest version)",
+      "Bash(mkdir -p c:/projetos_pessoais/pagamentos/front/pagamentos_front/src/app/services)",
+      "Bash(mkdir -p c:/projetos_pessoais/pagamentos/front/pagamentos_front/src/app/home)"
+    ]
+  }
+}
