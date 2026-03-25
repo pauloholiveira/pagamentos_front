@@ -10,6 +10,6 @@ export class PagamentoService {
   private readonly http = inject(HttpClient);
 
   getLista(): Observable<any[]> {
-    return this.http.get<any[]>(`${this.baseUrl}/lista`);
+    return this.http.get<any[]>(`${this.baseUrl}/v1/payments`);
   }
 }
