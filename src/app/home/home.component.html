@@ -2,14 +2,22 @@
   <h1>Olá mundo</h1>
 
   <section class="lista-section">
-    <div *ngIf="carregando" class="estado">Carregando...</div>
+    @if (carregando()) {
+      <div class="estado">Carregando...</div>
+    }
 
-    <div *ngIf="erro" class="estado erro">{{ erro }}</div>
+    @if (erro()) {
+      <div class="estado erro">{{ erro() }}</div>
+    }
 
-    <ul *ngIf="!carregando && !erro">
-      <li *ngFor="let item of lista">
-        {{ item | json }}
-      </li>
-    </ul>
+    @if (!carregando() && !erro()) {
+      <ul>
+        @for (item of lista(); track $index) {
+          <li>
+            {{ item | json }}
+          </li>
+        }
+      </ul>
+    }
   </section>
 </div>

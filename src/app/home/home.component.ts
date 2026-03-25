@@ -1,4 +1,4 @@
-import { Component, OnInit, inject } from '@angular/core';
+import { Component, OnInit, inject, signal } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { PagamentoService } from '../services/pagamento.service';
 
@@ -12,19 +12,19 @@ import { PagamentoService } from '../services/pagamento.service';
 export class HomeComponent implements OnInit {
   private readonly pagamentoService = inject(PagamentoService);
 
-  lista: any[] = [];
-  carregando = true;
-  erro: string | null = null;
+  lista = signal<any[]>([]);
+  carregando = signal(true);
+  erro = signal<string | null>(null);
 
   ngOnInit(): void {
     this.pagamentoService.getLista().subscribe({
       next: (dados) => {
-        this.lista = dados.data?.pagamentos ?? [];
-        this.carregando = false;
+        this.lista.set(dados?.pagamentos ?? []);
+        this.carregando.set(false);
       },
       error: (err) => {
-        this.erro = 'Erro ao carregar a lista.';
-        this.carregando = false;
+        this.erro.set('Erro ao carregar a lista.');
+        this.carregando.set(false);
         console.error(err);
       }
     });
